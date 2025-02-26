@@ -14,6 +14,11 @@ fun main() {
     menuPrincipal()
 }
 
+/**
+ * Mètode usat per gestionar el menú principal del terminal que permet triar
+ * la UI amb la que l'usuari@ vol fer servir la app.
+ * @author RIS
+ */
 private fun menuPrincipal(){
     val calculadora: Calculadora = Calculadora()
 
