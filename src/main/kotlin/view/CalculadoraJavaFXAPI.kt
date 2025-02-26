@@ -1,5 +1,6 @@
 package org.example
 
+import controller.Calculadora
 import javafx.application.Application
 import javafx.geometry.Insets
 import javafx.stage.Stage
@@ -15,7 +16,7 @@ import org.example.utils.CalculadoraController.multi
 import org.example.utils.CalculadoraController.resta
 import org.example.utils.CalculadoraController.suma
 
-class CalculadoraJavaFXAPI: Application() {
+class CalculadoraJavaFXAPI(private val calculadora: Calculadora) : Application() {
 
     override fun start(primerStage: Stage) {
         /* Declarem els atributs de la vista */
@@ -30,10 +31,10 @@ class CalculadoraJavaFXAPI: Application() {
         /* Definim el comportament de les accions de clickar cadascun dels botons */
 
         btnSuma.setOnAction {
-            val primerNumero: Double = txtPrimerOperador.text.toDouble()
-            val segonNumero: Double = txtSegonOperador.text.toDouble()
-            val resultat: Double = suma(primerNumero, segonNumero)
-            lblResultat.text = "La suma de $primerNumero i $segonNumero és: $resultat"
+            this.calculadora.setX(txtPrimerOperador.text.toDouble())
+            this.calculadora.setY(txtSegonOperador.text.toDouble())
+            val resultat: Double = suma(this.calculadora.getX(), this.calculadora.getY())
+            lblResultat.text = "La suma de ${this.calculadora.getX()} i ${this.calculadora.getY()} és: $resultat"
         }
 
         btnResta.setOnAction {
