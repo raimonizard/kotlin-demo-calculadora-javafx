@@ -1,6 +1,5 @@
-package controller
+package model
 
-import model.TipusOperacio
 import org.example.utils.CalculadoraController.div
 import org.example.utils.CalculadoraController.multi
 import org.example.utils.CalculadoraController.resta

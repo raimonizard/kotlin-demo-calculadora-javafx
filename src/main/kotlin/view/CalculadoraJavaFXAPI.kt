@@ -1,6 +1,6 @@
 package org.example
 
-import controller.Calculadora
+import model.Calculadora
 import javafx.application.Application
 import javafx.geometry.Insets
 import javafx.stage.Stage

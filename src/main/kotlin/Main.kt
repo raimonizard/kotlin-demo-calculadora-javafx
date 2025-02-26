@@ -1,4 +1,4 @@
-import controller.Calculadora
+import model.Calculadora
 import javafx.application.Application
 import org.example.CalculadoraJavaFXAPI
 import util.readDouble

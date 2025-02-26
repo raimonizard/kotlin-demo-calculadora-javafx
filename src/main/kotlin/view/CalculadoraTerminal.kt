@@ -1,6 +1,6 @@
 package view
 
-import controller.Calculadora
+import model.Calculadora
 import model.TipusOperacio
 import util.*
 
