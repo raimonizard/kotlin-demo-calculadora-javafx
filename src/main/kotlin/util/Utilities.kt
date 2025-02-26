@@ -1,5 +1,6 @@
 package util
 
+import model.Color
 import java.util.*
 
 val scan: Scanner = Scanner(System.`in`)
@@ -24,7 +25,7 @@ fun readWord(pMessageIn: String
         correctDataType = scan.hasNext()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.next()
         }
@@ -54,7 +55,7 @@ fun readSentence(pMessageIn: String
         correctDataType = scan.hasNext()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextLine()
         }
@@ -83,7 +84,7 @@ fun readChar(pMessageIn: String
         correctDataType = scan.hasNext()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             // Get the first character of the input word from scan.next()
             outputValue = scan.next()[0]
@@ -116,7 +117,7 @@ fun readChar(pMessageIn: String
         correctDataType = scan.hasNext()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = if (pCase == 0) scan.next()[0].lowercaseChar()
             else scan.next()[0].uppercaseChar()
@@ -147,7 +148,7 @@ fun readBoolean(pMessageIn: String
         correctDataType = scan.hasNextBoolean()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextBoolean()
         }
@@ -177,7 +178,7 @@ fun readInt(pMessageIn: String
         correctDataType = scan.hasNextInt()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextInt()
         }
@@ -213,12 +214,12 @@ fun readInt(pMessageIn: String
         correctDataType = scan.hasNextInt()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextInt()
 
             if (outputValue < pMin || outputValue > pMax){
-                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+                println(Color.YELLOW_BOLD_BRIGHT.consoleColor + "WARNING: " + pMessageErrorDV + Color.RESET.consoleColor)
                 correctDataType = false
             }
         }
@@ -247,7 +248,7 @@ fun readFloat(pMessageIn: String
         correctDataType = scan.hasNextFloat()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextFloat()
         }
@@ -283,12 +284,12 @@ fun readFloat(pMessageIn: String
         correctDataType = scan.hasNextFloat()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextFloat()
 
             if (outputValue < pMin || outputValue > pMax){
-                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+                println(Color.YELLOW_BOLD_BRIGHT.consoleColor + "WARNING: " + pMessageErrorDV + Color.RESET.consoleColor)
                 correctDataType = false
             }
         }
@@ -317,7 +318,7 @@ fun readDouble(pMessageIn: String
         correctDataType = scan.hasNextDouble()
 
         if (!correctDataType){
-            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            println(Color.RED_BACKGROUND_BRIGHT.consoleColor + "ERROR: " + pMessageErrorDT + Color.RESET.consoleColor)
         }else{
             outputValue = scan.nextDouble()
         }

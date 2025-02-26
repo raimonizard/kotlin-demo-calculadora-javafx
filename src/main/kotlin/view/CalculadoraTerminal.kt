@@ -1,6 +1,7 @@
 package view
 
 import model.Calculadora
+import model.Color
 import model.TipusOperacio
 import util.*
 
@@ -48,7 +49,7 @@ class CalculadoraTerminal {
                 TipusOperacio.RESTA -> calculadora.restar()
                 TipusOperacio.MULTIPLICACIO -> calculadora.multiplicar()
                 TipusOperacio.DIVISIO -> calculadora.dividir()
-                else -> println(RED + "ERROR: Operació no vàlida" + RESET)
+                else -> println(Color.RED.consoleColor + "ERROR: Operació no vàlida" + Color.RESET.consoleColor)
             }
         } while (tipusOperacio == null)
     }
