@@ -14,6 +14,8 @@ import org.example.utils.CalculadoraController.div
 import org.example.utils.CalculadoraController.multi
 import org.example.utils.CalculadoraController.resta
 import org.example.utils.CalculadoraController.suma
+import util.RED
+import util.RESET
 
 class CalculadoraJavaFXAPI: Application() {
 
@@ -27,35 +29,28 @@ class CalculadoraJavaFXAPI: Application() {
         val btnDiv = Button(TipusOperacio.DIVISIO.simbol)
         val lblResultat = Label()
 
-        /* Definim el comportament de les accions de clickar cadascun dels botons */
+        /* Definim el comportament de les accions de l'acció clickar damunt de cadascun dels botons */
 
         btnSuma.setOnAction {
-            val primerNumero: Double = txtPrimerOperador.text.toDouble()
-            val segonNumero: Double = txtSegonOperador.text.toDouble()
-            val resultat: Double = suma(primerNumero, segonNumero)
-            lblResultat.text = "La suma de $primerNumero i $segonNumero és: $resultat"
+            val valors = capturarValorsTextField(txtPrimerOperador, txtSegonOperador)
+            val resultat: Double = suma(valors.first, valors.second)
+            lblResultat.text = "La ${TipusOperacio.SUMA.toString().lowercase()} de ${valors.first} i ${valors.second} és: $resultat"
         }
 
         btnResta.setOnAction {
-            val primerNumero: Double = txtPrimerOperador.text.toDouble()
-            val segonNumero: Double = txtSegonOperador.text.toDouble()
-            val resultat: Double = resta(primerNumero, segonNumero)
-            lblResultat.text = "La resta de $primerNumero i $segonNumero és: $resultat"
-        }
+            val valors = capturarValorsTextField(txtPrimerOperador, txtSegonOperador)
+            val resultat: Double = resta(valors.first, valors.second)
+            lblResultat.text = "La ${TipusOperacio.RESTA.toString().lowercase()} de ${valors.first} i ${valors.second} és: $resultat"        }
 
         btnMulti.setOnAction {
-            val primerNumero: Double = txtPrimerOperador.text.toDouble()
-            val segonNumero: Double = txtSegonOperador.text.toDouble()
-            val resultat: Double = multi(primerNumero, segonNumero)
-            lblResultat.text = "La multiplicació de $primerNumero i $segonNumero és: $resultat"
-        }
+            val valors = capturarValorsTextField(txtPrimerOperador, txtSegonOperador)
+            val resultat: Double = multi(valors.first, valors.second)
+            lblResultat.text = "La ${TipusOperacio.MULTIPLICACIO.toString().lowercase()} de ${valors.first} i ${valors.second} és: $resultat"        }
 
         btnDiv.setOnAction {
-            val primerNumero: Double = txtPrimerOperador.text.toDouble()
-            val segonNumero: Double = txtSegonOperador.text.toDouble()
-            val resultat: Double = div(primerNumero, segonNumero)
-            lblResultat.text = "La divisió entre $primerNumero i $segonNumero és: $resultat"
-        }
+            val valors = capturarValorsTextField(txtPrimerOperador, txtSegonOperador)
+            val resultat: Double = div(valors.first, valors.second)
+            lblResultat.text = "La ${TipusOperacio.DIVISIO.toString().lowercase()} de ${valors.first} i ${valors.second} és: $resultat"        }
 
         /* DEFINIM ELS COMPONENTS DE LA VISTA */
 
@@ -91,5 +86,30 @@ class CalculadoraJavaFXAPI: Application() {
         primerStage.scene = scene
         // Fem que aparegui la finestra de la GUI
         primerStage.show()
+    }
+
+    /**
+     * Funció que captura els valors de l'input de l'usuari dins dels TextFields de la GUI
+     * amb control d'excepcions i els retorna en format Double.
+     * @author RIS
+     * @param txtPrimerOperador el TextField del primer operador
+     * @param txtSegonOperador el TextField del segon operador
+     * @return Una parella de valors en format Pair<Double, Double>
+     */
+    private fun capturarValorsTextField(txtPrimerOperador: TextField,
+                                        txtSegonOperador: TextField):
+                                        Pair<Double, Double>
+    {
+        var primerNumero: Double = 0.0
+        var segonNumero: Double = 0.0
+
+        try {
+            primerNumero = txtPrimerOperador.text.toDouble()
+            segonNumero = txtSegonOperador.text.toDouble()
+        }catch (e: NumberFormatException){
+            println(RED + "ERROR: Has introduit valors incorrectes dins dels TextFields de la Calculadora GUI" + RESET)
+        }
+
+        return  Pair(primerNumero, segonNumero)
     }
 }
