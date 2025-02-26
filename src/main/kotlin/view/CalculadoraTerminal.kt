@@ -1,66 +1,36 @@
 package view
 
+import model.Calculadora
 import model.TipusOperacio
-import org.example.utils.CalculadoraController.div
-import org.example.utils.CalculadoraController.multi
-import org.example.utils.CalculadoraController.resta
-import org.example.utils.CalculadoraController.suma
 import util.*
 
 class CalculadoraTerminal {
-    private var x: Double
-    private var y: Double
-    lateinit var operacio: TipusOperacio
-    private var resultat: Double
+    private val calculadora: Calculadora
 
-    constructor() {
-        this.x = 0.0
-        this.y = 0.0
-        this.resultat = 0.0
+    /**
+     * Constructor de la classe de la vista
+     * @param calculadora: Inicialitza l'atribut calculadora
+     * @author RIS
+     */
+    constructor(calculadora: Calculadora) {
+        this.calculadora = calculadora
     }
 
-    constructor(x: Double, y: Double) {
-        this.x = x
-        this.y = y
-        this.resultat = 0.0
+    /**
+     * Mètode usat per tal de retornar l'atribut calculadora
+     * per poder accedir als mètodes de l'objecte.
+     * @author RIS
+     * @return calculadora
+     */
+    fun getCalculadora(): Calculadora {
+        return this.calculadora
     }
 
-    fun getX(): Double {
-        return this.x
-    }
-
-    fun setX(x: Double) {
-        this.x = x
-    }
-
-    fun getY(): Double {
-        return this.y
-    }
-
-    fun setY(y: Double) {
-        this.y = y
-    }
-
-    fun sumar(){
-        this.operacio = TipusOperacio.SUMA
-        this.resultat = suma(this.x, this.y)
-    }
-
-    fun restar(){
-        this.operacio = TipusOperacio.RESTA
-        this.resultat = resta(this.x, this.y)
-    }
-
-    fun multiplicar(){
-        this.operacio = TipusOperacio.MULTIPLICACIO
-        this.resultat = multi(this.x, this.y)
-    }
-
-    fun dividir(){
-        this.operacio = TipusOperacio.DIVISIO
-        this.resultat = div(this.x, this.y)
-    }
-
+    /**
+     * Mètode principal de la vista del temrinal de IntelliJ.
+     * Manté un diàleg amb l'usuari de la app via terminal.
+     * @author RIS
+     */
     fun escollirOperacio(){
         do {
             // Mostrem les operacions disponibles
@@ -74,18 +44,12 @@ class CalculadoraTerminal {
             val tipusOperacio = TipusOperacio.entries.find { it.name == operacio }
 
             when (tipusOperacio) {
-                TipusOperacio.SUMA -> this.sumar()
-                TipusOperacio.RESTA -> this.restar()
-                TipusOperacio.MULTIPLICACIO -> this.multiplicar()
-                TipusOperacio.DIVISIO -> this.dividir()
+                TipusOperacio.SUMA -> calculadora.sumar()
+                TipusOperacio.RESTA -> calculadora.restar()
+                TipusOperacio.MULTIPLICACIO -> calculadora.multiplicar()
+                TipusOperacio.DIVISIO -> calculadora.dividir()
                 else -> println(RED + "ERROR: Operació no vàlida" + RESET)
             }
         } while (tipusOperacio == null)
     }
-
-    override fun toString(): String {
-        return "CalculadoraTerminal(${this.x} ${this.operacio.simbol} ${this.y} = ${this.resultat})"
-    }
-
-
 }
