@@ -8,7 +8,7 @@ Koltin app using MVC with three diffent views:
 temurin-20 Eclipse Temurin 20.0.2
 
 # IntelliJ Terminal view
-![JavaFX API view](screenshot/Terminal_view_2.png)
+![JavaFX API view](screenshot/Terminal_view.png)
 
 # JavaFX API view
 ![JavaFX API view](screenshot/JavaFX_API_view.png)

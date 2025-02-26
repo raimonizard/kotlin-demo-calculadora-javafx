@@ -94,7 +94,7 @@ class CalculadoraJavaFXAPIColor: Application() {
         // Definim la finestra emergent amb el seu contingut vbox i la seva mida en píxels horitzontal i vertical
         val scene = Scene(vBox, 400.0, 300.0)
         // Definim el títol que es mostrarà a la finestra emergent
-        primerStage.title = "Calculadora"
+        primerStage.title = "Calculadora Color!"
         // Li assignem l'escena creada a l'atribut scene a la finestra GUI del nostre programa 'primerStage'
         primerStage.scene = scene
         // Fem que aparegui la finestra de la GUI
