@@ -59,6 +59,11 @@ class CalculadoraJavaFXAPIColor: Application() {
         desplegableColorBackground.setOnAction {
             val colorTriat = desplegableColorBackground.value
             primerStage.scene.root.style = "-fx-background-color: ${colorTriat.backgroundColor};"
+
+            // Aplica el color de text a tots els Labels
+            primerStage.scene.root.lookupAll(".label").forEach {
+                if (it is Label) it.style = "-fx-text-fill: ${colorTriat.textColor};"
+            }
         }
 
         /* DEFINIM ELS COMPONENTS DE LA VISTA */
